@@ -1,0 +1,22 @@
+{
+  "electricityConsumption": [
+    { "month": "Janvier", "servers": 4500, "cooling": 1200, "network": 800 },
+    { "month": "Février", "servers": 4300, "cooling": 1100, "network": 750 },
+    { "month": "Mars", "servers": 4400, "cooling": 1150, "network": 780 },
+    { "month": "Avril", "servers": 4100, "cooling": 950, "network": 700 },
+    { "month": "Mai", "servers": 3900, "cooling": 900, "network": 650 },
+    { "month": "Juin", "servers": 3800, "cooling": 850, "network": 650 }
+  ],
+  "carbonFootprint": [
+    { "datacenter": "Paris-DC1", "emissions": 152 },
+    { "datacenter": "Lyon-DC2", "emissions": 124 },
+    { "datacenter": "Berlin-DC1", "emissions": 187 },
+    { "datacenter": "Madrid-DC3", "emissions": 105 },
+    { "datacenter": "Londres-DC1", "emissions": 221 }
+  ],
+  "kpis": {
+    "totalConsumption": "5,300 MWh",
+    "reductionTarget": "-15%",
+    "systemAlerts": 2
+  }
+}
