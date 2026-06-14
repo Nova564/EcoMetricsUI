@@ -1,73 +1,54 @@
-# React + TypeScript + Vite
+# EcoMetricsUI
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+EcoMetricsUI est un tableau de bord (Dashboard) interactif conçu pour suivre et analyser l'impact environnemental des infrastructures informatiques (Green IT). 
 
-Currently, two official plugins are available:
+L'application permet de visualiser :
+- La consommation électrique globale (serveurs, refroidissement, réseau).
+- L'empreinte carbone (émissions de CO2) répartie par datacenter.
+- Les indicateurs clés de performance (KPIs) comme les objectifs de réduction du plan climat et les alertes de surchauffe.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## D'où viennent les données ?
 
-## React Compiler
+Actuellement, l'application utilise des **données simulées (mockées)** pour démonstration.
+Les données sont stockées sous forme statique dans le fichier `public/data.json`. 
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Le composant `Dashboard.tsx` simule un appel API asynchrone (avec un léger délai de chargement de 800ms) pour récupérer ce fichier JSON, ce qui permet de tester les états de chargement (loading) et les éventuelles erreurs de réseau.
 
-## Expanding the ESLint configuration
+## 🛠️ Technologies utilisées
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **[React 19](https://react.dev/)** : Bibliothèque principale pour la construction de l'interface utilisateur.
+- **[Vite](https://vitejs.dev/)** : Outil de build et serveur de développement ultra-rapide.
+- **[TypeScript](https://www.typescriptlang.org/)** : Pour un code robuste et typé.
+- **[Tailwind CSS (v4)](https://tailwindcss.com/)** : Pour le style et le design responsive (supporte le mode sombre/clair).
+- **[Lucide React](https://lucide.dev/)** : Pour les icônes vectorielles élégantes.
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## Comment lancer le projet ?
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Prérequis
+Assurez-vous d'avoir [Node.js](https://nodejs.org/) installé sur votre machine.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+### Installation
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+1. Clonez le dépôt et accédez au dossier du projet :
+   ```bash
+   cd EcoMetricsUI
+   ```
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+2. Installez les dépendances :
+   ```bash
+   npm install
+   ```
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+3. Lancez le serveur de développement :
+   ```bash
+   npm run dev
+   ```
+   *(Si vous êtes sur PowerShell et que l'exécution des scripts est bloquée, utilisez `npm.cmd run dev`)*
+
+4. Ouvrez votre navigateur et accédez à l'URL fournie (généralement `http://localhost:5173/`).
+
+## Structure du projet
+
+- `src/components/` : Contient les différents composants React (Dashboard, StatCard, ChartMock, Sidebar, etc.).
+- `public/data.json` : La source des données mockées.
+- `src/index.css` : Configuration globale de Tailwind et variables de style.
